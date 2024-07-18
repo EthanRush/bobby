@@ -14,7 +14,7 @@ export const AnchorSscroll = () => {
         }
   
         window.scrollTo({
-            top: target.offsetTop - offset,
+            top: link.offsetTop - offset,
             behavior: "smooth"
         });
       });

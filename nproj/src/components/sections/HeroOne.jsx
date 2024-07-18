@@ -39,10 +39,7 @@ const HeroOne = () => {
                                 <ArrowIcon />
                             </Link>
 
-                            <Link href={Data.button2.link} className="mil-link mil-muted mil-arrow-place">
-                                <span>{Data.button2.label}</span>
-                                <ArrowIcon />
-                            </Link>
+                            
 
                             <div className="mil-circle-text">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enableBackground="new 0 0 300 300" xmlSpace="preserve" className="mil-ct-svg mil-rotate" data-value="360">

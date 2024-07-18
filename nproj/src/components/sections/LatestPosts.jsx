@@ -27,13 +27,12 @@ const LatestPostsSection = ( { posts, layout, imageHorizontal } ) => {
                         {posts.slice(0, Data.numOfItems).map((item, key) => (
                         <div className="col-lg-6" key={`blog-post-${key}`}>
 
-                            <Link href={`/blog/${item.id}`} className="mil-blog-card mil-mb-60">
+                            <Link href={item.link} className="mil-blog-card mil-mb-60">
                                 <div className="mil-cover-frame mil-up">
                                     <img src={item.image} alt={item.title} />
                                 </div>
                                 <div className="mil-post-descr">
                                     <div className="mil-labels mil-up mil-mb-30">
-                                        <div className="mil-label mil-upper mil-accent">{item.category}</div>
                                         <div className="mil-label mil-upper"><Date dateString={item.date} /></div>
                                     </div>
                                     <h4 className="mil-up mil-mb-30">{item.title}</h4>
