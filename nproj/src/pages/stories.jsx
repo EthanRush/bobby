@@ -1,4 +1,4 @@
-import { PER_PAGE } from './blog/page/[page]'
+import { PER_PAGE } from './stories/page/[page]'
 import PaginatedBlog from '@components/PaginatedBlog'
 import Pagination from '@components/Pagination'
 import Link from "next/link";

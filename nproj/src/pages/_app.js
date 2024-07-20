@@ -4,6 +4,8 @@ import AppData from "@data/app.json";
 
 import '../styles/scss/style.scss';
 import "../styles/globals.css";
+import '../styles/scss/PasswordOverlay.scss'; // Make sure to create this CSS file for styling
+import '../styles/scss/matrixRain.scss';
 
 import { register } from "swiper/element/bundle";
 // register Swiper custom elements

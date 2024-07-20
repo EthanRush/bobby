@@ -10,7 +10,7 @@ import Header from "./headers/Index";
 //import Preloader from "./preloader/Index";
 import Cursor from "./cursor/Index";
 import ScrollbarProgress from "./scrollbar-progress/Index";
-
+import PasswordOverlay from "../components/pwProtection";
 const Layouts = ({
   children,
   header,
@@ -27,6 +27,9 @@ const Layouts = ({
     CurrentPageLabel();
   }, []);
 
+  const correctPassword = 'misinformation';
+
+
   return (
     <div className="mil-wrapper" id="top">
       <Cursor />
@@ -41,7 +44,7 @@ const Layouts = ({
           extraclassName={extraClass}
         />
       )}
-
+      <PasswordOverlay correctPassword={correctPassword} />
       <div className="mil-content">
         <div id="swupMain" className="mil-main-transition">
           {children}

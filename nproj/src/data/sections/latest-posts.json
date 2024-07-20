@@ -1,7 +1,7 @@
 {
     "title": "Some of the Stories:",
     "button": {
-        "link": "/blog",
+        "link": "/stories",
         "button": "View all"
     },
     "numOfItems": 2

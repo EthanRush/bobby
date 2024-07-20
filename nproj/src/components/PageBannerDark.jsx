@@ -35,9 +35,9 @@ const PageBannerDark = ({ pageTitle, breadTitle, anchorLabel, anchorLink }) => {
             <div className="container">
               <ul className="mil-breadcrumbs mil-light mil-mb-60">
                 <li><Link href="/">Homepage</Link></li>
-                {asPath.indexOf('/blog/') != -1 &&
+                {asPath.indexOf('/stories/') != -1 &&
                 <li>
-                  <Link href="/blog">Blog</Link>
+                  <Link href="/stories">Blog</Link>
                 </li>
                 }
                 {asPath.indexOf('/projects/') != -1 &&

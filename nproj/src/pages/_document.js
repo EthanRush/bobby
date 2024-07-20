@@ -11,10 +11,10 @@ class MyDocument extends Document {
           {/* meta end */}
 
           {/* public assets begin */}
-          <link rel="stylesheet" href="/css/plugins/bootstrap-grid.css" />
-          <link rel="stylesheet" href="/css/plugins/font-awesome.min.css" />
-          <link rel="stylesheet" href="/css/plugins/swiper.min.css" />
-          <link rel="stylesheet" href="/css/plugins/magnific-popup.css" />  
+          <link rel="stylesheet" href="css/plugins/bootstrap-grid.css" />
+          <link rel="stylesheet" href="css/plugins/font-awesome.min.css" />
+          <link rel="stylesheet" href="css/plugins/swiper.min.css" />
+          <link rel="stylesheet" href="css/plugins/magnific-popup.css" />  
           {/* public assets end */}
         </Head>
         <body>

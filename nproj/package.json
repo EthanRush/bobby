@@ -1,10 +1,13 @@
 {
   "name": "ashley-nextjs",
   "version": "1.0.0",
+  "homepage": "https://EthanRush.github.io/bobby",
   "private": true,
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "NODE_ENV=production gh-pages -d out --nojekyll",
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,7 +16,7 @@
     "formik": "^2.4.2",
     "gray-matter": "^4.0.3",
     "gsap": "^3.11.5",
-    "next": "13.4.3",
+    "next": "^14.2.5",
     "parallax-js": "^3.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -21,5 +24,8 @@
     "remark-html": "^15.0.2",
     "sass": "^1.49.7",
     "swiper": "^9.0.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }

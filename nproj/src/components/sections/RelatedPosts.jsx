@@ -25,7 +25,7 @@ const RelatedPostsSection = ( Content ) => {
                         {Content.items.slice(0, Data.numOfItems).map((item, key) => (
                         <div className="col-lg-6" key={`related-posts-item-${key}`}>
 
-                            <Link href={`/blog/${item.id}`} className="mil-blog-card mil-mb-60">
+                            <Link href={`/stories/${item.id}`} className="mil-blog-card mil-mb-60">
                                 <div className="mil-cover-frame mil-up">
                                     <img src={item.image} alt={item.title} />
                                 </div>

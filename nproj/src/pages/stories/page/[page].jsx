@@ -7,7 +7,7 @@ import SubscribeSection from "@components/sections/Subscribe";
 import Layouts from "@layouts/Layouts";
 
 import { getSortedCategoriesData } from "@library/categories";
-import { getPaginatedPostsData } from "@library/posts";
+import { getPaginatedPostsData, getSortedPostsData } from "@library/posts";
 
 export const PER_PAGE = 8
 
@@ -29,9 +29,9 @@ const Blog = ( { posts, currentPage, totalPosts, categories } ) => {
 
                       <ul className="mil-category-list">
                           {categories.map((item, key) => (
-                          <li key={`categories-item-${key}`}><Link href={`/blog/category/${item.id}`}>{item.title}</Link></li>
+                          <li key={`categories-item-${key}`}><Link href={`/stories/category/${item.id}`}>{item.title}</Link></li>
                           ))}
-                          <li><Link href="/blog" className="mil-active">All categories</Link></li>
+                          <li><Link href="/stories" className="mil-active">All categories</Link></li>
                       </ul>
                   </div>
               </div>
@@ -45,7 +45,7 @@ const Blog = ( { posts, currentPage, totalPosts, categories } ) => {
                 currentPage={currentPage}
                 totalItems={totalPosts}
                 perPage={PER_PAGE}
-                renderPageLink={(page) => `/blog/page/${page}`}
+                renderPageLink={(page) => `/stories/page/${page}`}
               />
           </div>
         </div>
@@ -60,10 +60,17 @@ const Blog = ( { posts, currentPage, totalPosts, categories } ) => {
 export default Blog;
 
 export async function getStaticPaths() {
-    return {
-        paths: Array.from({ length: 5 }).map((_, i) => `/blog/page/${i + 2}`),
-        fallback: 'blocking',
-    }
+  const totalPosts = await getSortedPostsData();
+  const totalPages = Math.ceil(totalPosts.total / 10); // Assuming 10 posts per page
+
+  const paths = Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: (i + 1).toString() },
+  }));
+
+  return {
+    paths,
+    fallback: false, // or 'blocking' if using ISR
+  };
 }
 
 export async function getStaticProps( { params } ) {
@@ -80,7 +87,7 @@ export async function getStaticProps( { params } ) {
     if (page === 1) {
       return {
         redirect: {
-          destination: '/blog',
+          destination: '/stories',
           permanent: false,
         },
       }

@@ -27,7 +27,7 @@ const PopularPostsSection = ( { posts } ) => {
                         {posts.slice(0, Data.numOfItems).map((item, key) => (
                         <div className="col-lg-6" key={`blog-post-${key}`}>
 
-                            <Link href={`/blog/${item.id}`} className="mil-blog-card mil-mb-60">
+                            <Link href={`/stories/${item.id}`} className="mil-blog-card mil-mb-60">
                                 <div className="mil-cover-frame mil-up">
                                     <img src={item.image} alt={item.title} />
                                 </div>

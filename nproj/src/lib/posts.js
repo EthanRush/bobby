@@ -24,11 +24,18 @@ async function fetchData(url) {
 
     const postsData = rows.map((row, index) => {
       var myDate = new Date(row[6]);
-      var dateStr = myDate.getFullYear().toString().concat( "-" , myDate.getMonth().toString() , "-" , myDate.getDay().toString());
+      var dateStr = myDate
+        .getFullYear()
+        .toString()
+        .concat(
+          "-",
+          myDate.getMonth().toString(),
+          "-",
+          myDate.getDay().toString()
+        );
 
       let img_id = row[5].split("id=")[1];
       let img_link = `https://drive.google.com/thumbnail?id=${img_id}`;
-
 
       console.log(dateStr);
       return {
@@ -37,7 +44,7 @@ async function fetchData(url) {
         short: row[2] || "",
         link: row[4] || "",
         image: img_link || "",
-        date:  myDate.toISOString() || "",
+        date: myDate.toISOString() || "",
         author: row[3] || "",
       };
     });
@@ -63,7 +70,9 @@ export async function getSortedPostsData() {
 export async function getCategoryPosts(cat_id) {
   var postsData = await fetchData(spreadsheetUrl);
 
-  const categoryPosts = postsData.filter(post => post.categories && post.categories.includes(cat_id));
+  const categoryPosts = postsData.filter(
+    (post) => post.categories && post.categories.includes(cat_id)
+  );
 
   return categoryPosts.sort((a, b) => {
     if (a.date < b.date) {
@@ -76,6 +85,10 @@ export async function getCategoryPosts(cat_id) {
 
 export async function getPaginatedPostsData(limit, page) {
   var postsData = await fetchData(spreadsheetUrl);
+
+  if (!Array.isArray(postsData)) {
+    return { posts: [], total: 0 };
+  }
 
   postsData.sort((a, b) => {
     if (a.date < b.date) {
@@ -92,7 +105,7 @@ export async function getPaginatedPostsData(limit, page) {
 export async function getFeaturedPostsData(ids) {
   var postsData = await fetchData(spreadsheetUrl);
 
-  const featuredPosts = postsData.filter(post => ids.includes(post.id));
+  const featuredPosts = postsData.filter((post) => ids.includes(post.id));
 
   return featuredPosts.sort((a, b) => {
     if (a.date < b.date) {
@@ -106,7 +119,7 @@ export async function getFeaturedPostsData(ids) {
 export async function getRelatedPosts(current_id) {
   var postsData = await fetchData(spreadsheetUrl);
 
-  const relatedPosts = postsData.filter(post => post.id !== current_id);
+  const relatedPosts = postsData.filter((post) => post.id !== current_id);
 
   return relatedPosts.sort((a, b) => {
     if (a.category > b.category) {
@@ -118,21 +131,16 @@ export async function getRelatedPosts(current_id) {
 }
 
 export async function getAllPostsIds() {
-  var postsData = await fetchData(spreadsheetUrl);
-
-  return postsData.map(post => {
-    return {
-      params: {
-        id: post.id,
-      },
-    };
-  });
+  const postsData = await fetchData(spreadsheetUrl);
+  return postsData.map((post) => ({
+    params: { id: post.id }
+  }));
 }
 
 export async function getPostData(id) {
   var postsData = await fetchData(spreadsheetUrl);
 
-  const post = postsData.find(post => post.id === id);
+  const post = postsData.find((post) => post.id === id);
 
   if (!post) {
     console.error(`Post with id ${id} not found.`);
@@ -140,9 +148,7 @@ export async function getPostData(id) {
   }
 
   // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    .use(html)
-    .process(post.body);
+  const processedContent = await remark().use(html).process(post.body);
   const contentHtml = processedContent.toString();
 
   // Combine the data with the id and contentHtml

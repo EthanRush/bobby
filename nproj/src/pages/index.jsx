@@ -2,6 +2,8 @@ import React from "react";
 import Layouts from "@layouts/Layouts";
 import dynamic from "next/dynamic";
 
+import MatrixRain from "../layouts/matrix-rain/Index";
+
 
 import HeroOneSection from "@components/sections/HeroOne";
 import LatestPostsSection from "@components/sections/LatestPosts";

@@ -29,9 +29,9 @@ const PostsDetail = ( props ) => {
 
                           <ul className="mil-category-list">
                               {categories.map((item, key) => (
-                              <li key={`categories-item-${key}`}><Link href={`/blog/category/${item.id}`} className={ item.id == props.id ? "mil-active" : ""}>{item.title}</Link></li>
+                              <li key={`categories-item-${key}`}><Link href={`/stories/category/${item.id}`} className={ item.id == props.id ? "mil-active" : ""}>{item.title}</Link></li>
                               ))}
-                              <li key={`categories-item-0`}><Link href="/blog">All categories</Link></li>
+                              <li key={`categories-item-0`}><Link href="/stories">All categories</Link></li>
                           </ul>
                       </div>
                   </div>
@@ -40,7 +40,7 @@ const PostsDetail = ( props ) => {
                   {posts.map((item, key) => (              
                   <div className="col-lg-12" key={`posts-item-${key}`}>
 
-                      <a href={`/blog/${item.id}`} className="mil-blog-card mil-blog-card-hori mil-more mil-mb-60">
+                      <a href={`/stories/${item.id}`} className="mil-blog-card mil-blog-card-hori mil-more mil-mb-60">
                           <div className="mil-cover-frame mil-up">
                               <img src={item.image} alt={item.title} />
                           </div>

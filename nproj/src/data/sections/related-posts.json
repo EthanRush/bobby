@@ -3,6 +3,6 @@
     "numOfItems": 2,
     "button": {
         "label": "View all",
-        "link": "/blog"
+        "link": "/stories"
     }
 }

@@ -13,7 +13,7 @@ const PaginationPage = ({ items }) => {
                 </div>
                 <div className="mil-post-descr">
                     <div className="mil-labels mil-up mil-mb-30">
-                        <div className="mil-label mil-upper"><Date dateString={item.date} /></div>
+                        <div className="mil-label mil-upper"><Date dateString={item.date} /> - {item.author}</div>
                     </div>
                     <h4 className="mil-up mil-mb-30">{item.title}</h4>
                     <p className="mil-post-text mil-up mil-mb-30">{item.short}</p>

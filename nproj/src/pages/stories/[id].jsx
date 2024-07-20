@@ -73,12 +73,12 @@ const PostsDetail = ( props ) => {
 export default PostsDetail;
 
 export async function getStaticPaths() {
-    const paths = getAllPostsIds()
+  const paths = await getAllPostsIds();
 
-    return {
-      paths,
-      fallback: false
-    }
+  return {
+    paths,
+    fallback: false, // or 'blocking' if you want to use incremental static regeneration
+  };
 }
 
 export async function getStaticProps({ params }) {
